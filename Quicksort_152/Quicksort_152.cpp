@@ -57,7 +57,7 @@ void q_sort(int low, int high) {
 			i++; //Langkah 6
 			cmp_count++;
 		}
-		cmp count++;
+		cmp_count++;
 		//search for an element less thaner equal to pivot
 		while ((arr[j] > pivot) && (j >= high)) //Langkah 7
 			j--; // Langkah 8
@@ -71,5 +71,8 @@ void q_sort(int low, int high) {
 		swap(i, j);
 		mov_count++;
 	}
-
+	//sort the list on the left pivot using quick sort
+	q_sort(low, j - 1); //Langkah 12
+	// sort the list on the righ of pivot  using quick sort
+	q_sort(j + 1, high); // Langkah 13
 }
