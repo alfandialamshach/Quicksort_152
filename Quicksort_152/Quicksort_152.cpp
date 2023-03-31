@@ -45,9 +45,10 @@ void q_sort(int low, int high) {
 	// Partition the list into two parts
 	// One containing elementless that or equal to pivot
 	// Outher containing element greather than pivot
+	pivot = arr[low]; //Langkah 2
 	i = low + 1;	//Langkah 3
 	j = high;		//Langkah 4
-	pivot = arr[low]; //Langkah 2
+	
 
 	while (i <= j) //Langkah 10
 	{
@@ -60,8 +61,10 @@ void q_sort(int low, int high) {
 		cmp_count++;
 		//search for an element less thaner equal to pivot
 		while ((arr[j] > pivot) && (j >= high)) //Langkah 7
+		{
 			j--; // Langkah 8
-		cmp_count++;
+			cmp_count++;
+		}
 	}
 	cmp_count++;
 	if (i < j) // Langkah 9
@@ -81,4 +84,20 @@ void display() {
 	cout << "\n=============" << endl;
 	cout << "\n=sorted array" << endl;
 	cout << "\n=============" << endl;
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << "\n\nNumber of comparison: " << cmp_count << endl;
+	cout << "Number of data movement: " << mov_count << endl;
+}
+int main() {
+	input();
+	//sort the arrray using quich sort
+	q_sort(0, n - 1);
+	display();
+	system("pause");
+
+	return 0;
 }
